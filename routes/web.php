@@ -14,19 +14,19 @@ Route::get('/abc', function () {
 //-------------------------------------------------------
 
 Route::get('/owner/Registration', 'ownerController@add')->name('owner.Registration');
-Route::post('/owner/Registration', 'ownerController@create');
+Route::post('/owner/Registrationpost', 'ownerController@create');
 Route::get('/owner/homepage', 'ownerController@loadadmin')->name('owner.homepage');
 
 
 Route::get('/customer/Registration', 'customerController@add')->name('customer.Registration');
-Route::post('/customer/Registration', 'customerController@create');
+Route::post('/customer/Registrationpost', 'customerController@create');
 
-Route::get('/owner/Registrationproduct ', 'ownerController@product')->name('owner.addproduct');
-Route::post('/owner/Registrationproduct ', 'ownerController@productpost');
+Route::get('/owner/Reg', 'ownerController@product')->name('owner.addproduct');
+Route::post('/owner/Registrationproductpost ', 'ownerController@productpost');
 
 
 Route::get('/home/page ', 'HomeController@add')->name('home.all');
-Route::post('/home/page ', 'HomeController@productpost');
+Route::post('/home/pageee ', 'HomeController@productpost');
 
 
 Route::get('/homepage ', 'HomeController@index')->name('home.index');
