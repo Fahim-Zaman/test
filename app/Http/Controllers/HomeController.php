@@ -5,19 +5,30 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\User;
 use Validator;
+use App\product;
 use App\Http\Requests\StudentRequest;
 
 class HomeController extends Controller
 {
 
 
+
+ /*public function add(){
+        $product=product::all();
+
+        return view('index', ['iac' => $complain]);
+    }
+*/
+
+
+//------------------------------------------
     public function index(Request $req){
-		return view('home.index');
+		 $product=product::all();
+
+        return view('index', ['iac' => $product]);
 	}
 
-    public function add(){
-    	return view('home.add');
-    }
+   
 
     public function create(StudentRequest $req){
 

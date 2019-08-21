@@ -2,10 +2,13 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\Http\Request;
+use App\User;
+use Validator;
 use App\owner;
 use App\product;
+use App\Http\Requests\StudentRequest;
 
-use Illuminate\Http\Request;
 
 class ownerController extends Controller
 {
@@ -13,6 +16,14 @@ class ownerController extends Controller
 
 		
 		return view('owner.Registration');
+    }
+
+     public function loadadmin(){
+
+		
+	      $product=product::all();
+
+        return view('owner.index', ['iac' => $product]);
     }
 
     public function create(Request $req){
@@ -33,8 +44,9 @@ class ownerController extends Controller
     	$user->save();
 
   
-        
-           	return view('owner.Registration');
+          $product=product::all();
+
+        return view('owner.index', ['iac' => $product]);
 		//return redirect()->route('index');
     }
 
