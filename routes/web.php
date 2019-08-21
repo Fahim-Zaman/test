@@ -11,6 +11,22 @@ Route::get('/abc', function () {
     return view('test');
 });
 
+//-------------------------------------------------------
+
+Route::get('/owner/Registration', 'ownerController@add')->name('owner.Registration');
+Route::post('/owner/Registration', 'ownerController@create');
+
+Route::get('/customer/Registration', 'customerController@add')->name('customer.Registration');
+Route::post('/customer/Registration', 'customerController@create');
+
+
+
+
+
+
+
+//--------------------------------------------------------------
+
 //Route::get('/login', 'LoginController@index');
 Route::get('/login', ['as'=>'login.index','uses'=>'LoginController@index']);
 Route::post('/login', ['uses'=>'LoginController@verify']);
