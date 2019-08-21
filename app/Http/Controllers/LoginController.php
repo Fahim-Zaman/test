@@ -25,6 +25,11 @@ class LoginController extends Controller
 		$result = DB::table('owner')->where('username', $req->uname)
 				->where('password', $req->password)
 				->get();
+
+
+		$cus = DB::table('customer')->where('username', $req->uname)
+				->where('password', $req->password)
+				->get();
 		
 		
 
@@ -37,30 +42,30 @@ class LoginController extends Controller
 			{
 				return redirect()->route('owner.homepage');
 			}
-			elseif ($result[0]->type=='investor') 
-			{
-				return redirect()->route('investor.index');
-			}
-			elseif ($result[0]->type=='superadmin') 
-			{
-				return redirect()->route('superadmin.index');
-			}
-			elseif ($result[0]->type=='idea') 
-			{
-				return redirect()->route('idea.index');
-			}
-			elseif ($result[0]->type=='supportadmin') 
-			{
-				return redirect()->route('supportadmin.index');
-			}
 
 			
 		}
+
+		else if (count($cus) > 0)
+		 {
+
+
+			$req->session()->put('username', $req->uname);
+			$req->session()->put('type', $cus[0]->type);
+			if($cus[0]->type=='customer')
+			{
+				return redirect()->route('customer.homepage');
+			}
+				
+				}
 		else
 		{
 			$req->session()->flash('msg', 'invalid username or password');
 			return redirect()->route('login.index');
 			//return view('login.index');
 		}
+
+
+		
 	}
 }

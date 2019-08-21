@@ -13,12 +13,12 @@ class HomeController extends Controller
 
 
 
- /*public function add(){
+ public function add(){
         $product=product::all();
 
         return view('index', ['iac' => $complain]);
     }
-*/
+
 
 
 //------------------------------------------

@@ -20,6 +20,7 @@ Route::get('/owner/homepage', 'ownerController@loadadmin')->name('owner.homepage
 
 Route::get('/customer/Registration', 'customerController@add')->name('customer.Registration');
 Route::post('/customer/Registrationpost', 'customerController@create');
+Route::get('/customer/homepage', 'customerController@loadcustomer')->name('customer.homepage');
 
 Route::get('/owner/Reg', 'ownerController@product')->name('owner.addproduct');
 Route::post('/owner/Registrationproductpost ', 'ownerController@productpost');
@@ -42,8 +43,10 @@ Route::get('/homepage ', 'HomeController@index')->name('home.index');
 //--------------------------------------------------------------
 
 Route::get('/login', 'LoginController@index')->name('log.in');
-Route::get('/login', ['as'=>'login.index','uses'=>'LoginController@index']);
-Route::post('/login', ['uses'=>'LoginController@verify']);
+Route::get('/loginj', ['as'=>'login.index','uses'=>'LoginController@index']);
+Route::post('/logingg', ['uses'=>'LoginController@verify']);
+
+
 Route::get('/ninvestor/Registration', 'investorController@add')->name('investor.Registration');
 Route::post('/ninvestor/Registration', 'investorController@create');
 Route::get('/idea/Registration', 'ideaController@createre')->name('idea.Registration');

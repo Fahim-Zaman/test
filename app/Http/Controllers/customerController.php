@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 
 use App\customer;
+use App\product;
 
 class customerController extends Controller
 {
@@ -13,6 +14,15 @@ class customerController extends Controller
 		
 		return view('customer.Registration');
     }
+
+     public function loadcustomer(){
+
+        
+          $product=product::all();
+
+        return view('customer.index', ['iac' => $product]);
+    }
+
 
     public function create(Request $req){
     	        $this->validate($req, [
