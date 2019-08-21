@@ -19,6 +19,12 @@ Route::post('/owner/Registration', 'ownerController@create');
 Route::get('/customer/Registration', 'customerController@add')->name('customer.Registration');
 Route::post('/customer/Registration', 'customerController@create');
 
+Route::get('/owner/Registrationproduct ', 'ownerController@product')->name('owner.Registrationproduct');
+Route::post('/owner/Registrationproduct ', 'ownerController@productpost');
+
+
+
+
 
 
 
