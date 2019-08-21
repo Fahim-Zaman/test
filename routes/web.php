@@ -22,6 +22,9 @@ Route::get('/customer/Registration', 'customerController@add')->name('customer.R
 Route::post('/customer/Registrationpost', 'customerController@create');
 Route::get('/customer/homepage', 'customerController@loadcustomer')->name('customer.homepage');
 
+Route::get('/customer/cart/{sid}', 'customerController@cart')->name('customer.cart');
+
+
 Route::get('/owner/Reg', 'ownerController@product')->name('owner.addproduct');
 Route::post('/owner/Registrationproductpost ', 'ownerController@productpost');
 

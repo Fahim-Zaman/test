@@ -132,7 +132,7 @@
               <h6>{{$val['model']}}</h6>
               <p> ${{$val['price']}} </p>
               <p> {{$val['description']}} </p>
-              <a href="#" class="site-btn btn-line">ADD TO CART</a>
+              
             </div>
           </div>
         </div>
