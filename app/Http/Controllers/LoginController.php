@@ -22,39 +22,38 @@ class LoginController extends Controller
 		
 		
 
-		$customer = DB::table('customer')->where('username', $req->uname)
-				->where('password', $req->password)
-				->get();
-
-
-		$owner = DB::table('owner')->where('username', $req->uname)
+		$result = DB::table('owner')->where('username', $req->uname)
 				->where('password', $req->password)
 				->get();
 		
 		
 
-		if(count($owner) > 0)
+		if(count($result) > 0)
 		{
 
 			$req->session()->put('username', $req->uname);
-		
-				return redirect()->route('owner.index');
-			
-		}
-		else
-		{
-			$req->session()->flash('msg', 'invalid username or password');
-			return redirect()->route('login.index');
-			//return view('login.index');
-		}
+			$req->session()->put('type', $result[0]->type);
+			if($result[0]->type=='admin')
+			{
+				return redirect()->route('owner.homepage');
+			}
+			elseif ($result[0]->type=='investor') 
+			{
+				return redirect()->route('investor.index');
+			}
+			elseif ($result[0]->type=='superadmin') 
+			{
+				return redirect()->route('superadmin.index');
+			}
+			elseif ($result[0]->type=='idea') 
+			{
+				return redirect()->route('idea.index');
+			}
+			elseif ($result[0]->type=='supportadmin') 
+			{
+				return redirect()->route('supportadmin.index');
+			}
 
-
-		if(count($customer) > 0)
-		{
-
-			$req->session()->put('username', $req->uname);
-		
-				return redirect()->route('customer.index');
 			
 		}
 		else

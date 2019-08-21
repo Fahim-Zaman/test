@@ -41,7 +41,7 @@ Route::get('/homepage ', 'HomeController@index')->name('home.index');
 
 //--------------------------------------------------------------
 
-//Route::get('/login', 'LoginController@index');
+Route::get('/login', 'LoginController@index')->name('log.in');
 Route::get('/login', ['as'=>'login.index','uses'=>'LoginController@index']);
 Route::post('/login', ['uses'=>'LoginController@verify']);
 Route::get('/ninvestor/Registration', 'investorController@add')->name('investor.Registration');
