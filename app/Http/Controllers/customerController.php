@@ -8,6 +8,8 @@ use App\customer;
 use App\product;
 use App\owner;
 use App\cart;
+use App\Http\Requests\StudentRequest;
+use Illuminate\Support\Facades\DB;
 
 class customerController extends Controller
 {
@@ -25,27 +27,26 @@ class customerController extends Controller
         return view('customer.index', ['iac' => $product]);
     }
 
-     public function cart(Request $req,$id){
+     public function cartxx(Request $request,$id){
 
-     $req->session()->put('username', $req->uname);
+   // $req->session()->put('username', $req->uname);
+
+
+       $p=product::find($id);
 
 
 
-        $user = new customer();
+       
+ /*       DB::table('cart')->insert(
+    ['name' => $p[0]->name, 'model' => $p[0]->model,'price'=>$p[0]->price  , 'username'=>'fake']
+);*/
 
-         $user->id = $req->id;
-        $user->name = $req->name;
-        $user->model = $req->model;
-        $user->price = $req->price;
-        $user->username = "fake";
-        $user->save();
 
-        return redirect()->route('home.index');
 
         
-          $product=product::find();
+        //  $product=product::find();
 
-        return view('customer.index', ['iac' => $product]);
+      //  return view('customer.index', ['iac' => $product]);
     }
 
 
